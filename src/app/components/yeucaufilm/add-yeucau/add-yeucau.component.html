@@ -1,0 +1,35 @@
+<form style="margin-left: 250px" [formGroup]="addyeucau" (ngSubmit)="onAddyeucau(addyeucau.value)">
+  <legend>Thêm Yêu Cầu</legend>
+  <table class="table-no-bordered">
+    <tr>
+      <td><label>Tên Sản Phẩm</label></td>
+      <td><input type="text" class="form-control" formControlName="masanpham" placeholder="tên sản phẩm"></td>
+    </tr>
+    <tr>
+      <td><label>Phân Loại</label></td>
+      <td><input type="text" class="form-control"  formControlName="phanloai" placeholder="phân loại"></td>
+    </tr>
+    <tr>
+      <td><label>Loại Phim</label></td>
+      <td><input type="text" class="form-control"  formControlName="loaiphim" placeholder="loại phim"></td>
+    </tr>
+    <tr>
+      <td><label>Máy Dùng</label></td>
+      <td><input type="text" class="form-control"  formControlName="maydung" placeholder="máy dùng"></td>
+    </tr>
+    <tr>
+      <td><label>Tỷ Lệ</label></td>
+      <td><input style="width:90px" type="text" class="form-control" formControlName="tylex" placeholder="tỷ lệ x"></td>
+      <td><input style="width:90px; margin-left:-93px" type="text" class="form-control"  formControlName="tyley" placeholder="tỷ lệ y"></td>
+    </tr>
+    <tr>
+      <td><label>Người Yêu Cầu</label></td>
+      <td><input type="text" class="form-control"  formControlName="nguoiyeucau" placeholder="người yêu cầu"></td>
+    </tr>
+    <tr>
+      <td><label>Nội Dung Yêu Cầu</label></td>
+      <td><input type="text" class="form-control"  formControlName="noidungyeucau" placeholder="nội dung"></td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-primary" >Submit</button>
+</form>

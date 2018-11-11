@@ -1,0 +1,126 @@
+<div id="auto" style="margin-left:20px;margin-top:4px">
+            <td><button type="button"class="btn btn-outline-success"  data-toggle="modal" data-target="#addModalCenter">
+                Thêm
+              </button></td>
+            <td style="width:80px;">Từ Ngày :</td>
+            <td><input type="date" name="dateofbirth" id="dateofbirth"></td>
+            <td style="width:80px;">Đến Ngày :</td>
+            <td><input type="date" name="dateofbirth" id="dateofbirth"></td>
+            <td><button type="button" class="btn btn-outline-primary" style="margin-left: 10px;">Tìm</button></td>
+            <td><button type="button" class="btn btn-outline-secondary " style="margin-left:300px;">Secondary</button></td>
+            <td><button type="button" class="btn btn-outline-danger">Danger</button></td>
+            <td><button type="button" class="btn btn-outline-warning">Warning</button></td>
+            <td><button type="button" class="btn btn-outline-info">Info</button></td>
+            <td><button type="button" class="btn btn-outline-dark">Dark</button></td>
+   </div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 2px">
+<table style="background-position-x: right; width: 1980px;">
+    <thead  style="background-color: rgb(51, 144, 250)">
+        <tr>
+            <th>Check</th>
+            <th>ID</th>
+            <th>Ca</th>
+            <th>Ngày</th>
+            <th>Giờ</th>
+            <th>Bộ Phận</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Phân Loại</th>
+            <th>Loại Phim</th>
+            <th>Máy Dùng</th>
+            <th>Số Bộ</th>
+            <th>Tỷ Lệ X</th>
+            <th>Tỷ Lệ Y</th>
+            <th>Người Yêu Cầu</th>
+            <th>Nội Dung Yêu Cầu</th>
+            <th>Xác Nhận PE</th>
+            <th>Xác Nhận Cam</th>
+            <th>Máy In</th>
+            <th>Hiện Trạng</th>
+            <th>Giờ Xong</th>
+            <th>Ngày Xuất</th>
+            <th>Ngày Phế</th>
+            <th>Nội dung phế</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox"> All</td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filterid" placeholder="id"></td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filterca" placeholder="ca"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterngay" placeholder="ngày"></td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filtergio" placeholder="giờ"></td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filterbophan" placeholder="bộ phận"></td>
+            <td><input type="text" style="width:150px;"[(ngModel)]="filtermasanpham" placeholder="mã sản phẩm"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterphanloai" placeholder="phân loại"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterloaiphim" placeholder="loại phim"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filtermaydung" placeholder="máy dùng"></td>
+            <td><input type="text" style="width:50px;" [(ngModel)]="filtersobo" placeholder="số bộ"></td>
+            <td><input type="text" style="width:50px;" [(ngModel)]="filtertylex" placeholder="tỷ lệ x"></td>
+            <td><input type="text" style="width:50px;" [(ngModel)]="filtertyley" placeholder="tỷ lệ y"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filternguoiyeucau" placeholder="người yêu cầu"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filternoidungyeucau" placeholder="nội dung"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhanpe" placeholder="xác nhận pe"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhancam" placeholder="xác nhận cam"></td>
+            <td><input type="text" style="width:50px;" [(ngModel)]="filtermayin" placeholder="máy in"></td>
+            <td><input type="text" style="width:150px;"[(ngModel)]="filterhientrang" placeholder="hiện trạng"></td>
+            <td><input type="text" style="width:50px;" [(ngModel)]="filtergiohoanthanh" placeholder="giờ hoàn thành"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterngayxuatxuong" placeholder="ngày xuất"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterngaybaophe" placeholder="ngày phế"></td>
+            <td><input type="text" style="width:160px;"[(ngModel)]="filternoidungbaophe" placeholder="nội dung báo phế"></td>
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered table-hover table-sm" style="width:2100px;">
+<div style="height:630px; width:100%; overflow-y:scroll;" >
+    <tbody>
+        <tr *ngFor="let item of yeucaufilm | filterPipe03 
+        :filterid
+        :filterca 
+        :filterngay 
+        :filtergio
+        :filterbophan
+        :filtermasanpham
+        :filterphanloai
+        :filterloaiphim
+        :filtermaydung
+        :filtersobo
+        :filtertylex
+        :filtertyley
+        :filternguoiyeucau
+        :filternoidungyeucau
+        :filterxacnhanpe
+        :filterxacnhancam 
+        :filtermayin
+        :filterhientrang
+        :filtergiohoanthanh
+        :filterngayxuatxuong
+        :filterngaybaophe
+        :filternoidungbaophe">
+            <td>
+                <input type="checkbox" style="width:35px;">
+            </td>
+            <td style="width:70px;">{{item.id}}</td>
+            <td style="width:74px;">{{item.ca}}</td>
+            <td style="width:100px;">{{item.ngay}}</td>
+            <td style="width:74px;">{{item.gio}}</td>
+            <td style="width:72px;">{{item.bophan}}</td>
+            <td style="width:152px;"><a href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">{{item.masanpham}}</a></td>
+            <td style="width:100px;">{{item.phanloai}}</td>
+            <td style="width:104px;">{{item.loaiphim}}</td>
+            <td style="width:100px;">{{item.maydung}}</td>
+            <td style="width:55px;">{{item.sobo}}</td>
+            <td style="width:50px;">{{item.tylex}}</td>
+            <td style="width:52px;">{{item.tyley}}</td>
+            <td style="width:100px;">{{item.nguoiyeucau}}</td>
+            <td style="width:105px;">{{item.noidungyeucau}}</td>
+            <td style="width:100px;">{{item.xacnhanpe}}</td>
+            <td style="width:105px;">{{item.xacnhancam}}</td>
+            <td style="width:50px;">{{item.mayin}}</td>
+            <td style="width:154px;">{{item.hientrang}}</td>
+            <td style="width:50px;">{{item.giohoanthanh}}</td>
+            <td style="width:102px;">{{item.ngayxuatxuong}}</td>
+            <td style="width:102px;">{{item.ngaybaophe}}</td>
+            <td style="width:160px;">{{item.noidungbaophe}}</td>
+        </tr>
+    </tbody>
+</div>
+</table>
+</div>

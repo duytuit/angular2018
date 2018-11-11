@@ -1,0 +1,92 @@
+<div class="area"></div>
+<nav class="main-menu" style="position: fixed">
+            <ul>
+                <li [routerLink]="[ '/home' ]" routerLinkActive="active" >
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                </li>
+                <li class="has-subnav" routerLinkActive="active" [routerLink]="[ '/home/yeucau/list' ]">
+                    <a href="#">
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Yêu Cầu
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav" routerLinkActive="active">
+                    <a href="#">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            Phim
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav" routerLinkActive="active">
+                    <a href="#">
+                       <i class="fa fa-folder-open fa-2x"></i>
+                        <span class="nav-text">
+                            Loại Phim
+                        </span>
+                    </a>
+                   
+                </li>
+                <li routerLinkActive="active">
+                    <a href="#">
+                        <i class="fa fa-bar-chart-o fa-2x"></i>
+                        <span class="nav-text">
+                            Máy Dùng
+                        </span>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a href="#">
+                        <i class="fa fa-font fa-2x"></i>
+                        <span class="nav-text">
+                           Cam-Phim
+                        </span>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                   <a href="#">
+                       <i class="fa fa-table fa-2x"></i>
+                        <span class="nav-text">
+                            Tables
+                        </span>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                   <a href="#">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Maps
+                        </span>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a href="#">
+                       <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            Documentation
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li routerLinkActive="active">
+                   <a (click)="logout()">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+<div style="margin-left:50px">
+   <router-outlet></router-outlet>
+</div>
