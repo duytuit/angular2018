@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {YeucauService} from 'src/app/shared/services/yeucau.service';
+import { yeucaufilm } from 'src/app/shared/models/yeucau';
 
 @Component({
   selector: 'app-edit-yeucau',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-yeucau.component.css']
 })
 export class EditYeucauComponent implements OnInit {
+  @Input() yeucau:yeucaufilm;
 
-  constructor() { }
+  constructor(private yeucauService:YeucauService ,private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+   this.getHero();
   }
-
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.yeucauService.Getyeucau(id).subscribe(yeucau=>this.yeucau=yeucau);
+  }
+  Save(): void {
+    this.yeucauService.Updateyeucau(this.yeucau).subscribe();
+  }
 }

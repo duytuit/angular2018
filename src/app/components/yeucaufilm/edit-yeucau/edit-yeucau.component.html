@@ -1,37 +1,53 @@
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" >
-      <div class="modal-content" style="height: 600px;">
-        <div class="modal-header" style="background-color: aqua">
-          <h6 class="modal-title" id="exampleModalCenterTitle">Modal title</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <table>
-                <tr>
-                    <td>ID</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tên</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<table class="table-no-bordered" *ngIf="yeucau" style="margin-left: 250px;">
+  <h3>Sửa Yêu Cầu</h3>
+  <tr>
+    <td><label>Ca</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.ca" placeholder="ca"></td>
+  </tr>
+  <tr>
+    <td><label>Ngày</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.ngay" placeholder="ngày"></td>
+  </tr>
+  <tr>
+    <td><label>Giờ</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.gio" placeholder="giờ"></td>
+  </tr>
+  <tr>
+    <td><label>Bộ Phận</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.bophan" placeholder="bộ phận"></td>
+  </tr>
+  <tr>
+    <td><label>Tên Sản Phẩm</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.masanpham" placeholder="tên sản phẩm"></td>
+  </tr>
+  <tr>
+    <td><label>Phân Loại</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.phanloai" placeholder="phân loại"></td>
+  </tr>
+  <tr>
+    <td><label>Loại Phim</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.loaiphim" placeholder="loại phim"></td>
+  </tr>
+  <tr>
+    <td><label>Máy Dùng</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.maydung" placeholder="máy dùng"></td>
+  </tr>
+  <tr>
+    <td><label>Tỷ Lệ</label></td>
+    <td><input style="width:90px" type="text" class="form-control" [(ngModel)]="yeucau.tylex" placeholder="tỷ lệ x"></td>
+    <td><input style="width:90px; margin-left:-93px" type="text" class="form-control" [(ngModel)]="yeucau.tyley"
+        placeholder="tỷ lệ y"></td>
+  </tr>
+  <tr>
+    <td><label>Người Yêu Cầu</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.nguoiyeucau" placeholder="người yêu cầu"></td>
+  </tr>
+  <tr>
+    <td><label>Nội Dung Yêu Cầu</label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="yeucau.noidungyeucau" placeholder="nội dung"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td> <button type="button" class="btn btn-primary" (click)="Save()">Submit</button></td>
+  </tr>
+</table>

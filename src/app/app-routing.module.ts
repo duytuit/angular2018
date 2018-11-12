@@ -7,11 +7,8 @@ import { EditYeucauComponent } from 'src/app/components/yeucaufilm/edit-yeucau/e
 import { AddYeucauComponent } from 'src/app/components/yeucaufilm/add-yeucau/add-yeucau.component';
 import { SideMenu01Component } from 'src/app/shared/views/side-menu01/side-menu01.component';
 import {AuthGuard} from './shared/services/auth.guard';
-// import { AppComponent } from 'src/app/app.component';
 
 const routes: Routes = [
-
-
   {
     path: 'login',
     component: LoginComponent
@@ -23,14 +20,14 @@ const routes: Routes = [
     children: [
       {
         path: 'yeucau',
-        component: YeucauComponent,
+        component:YeucauComponent,
         children: [
           {
             path: 'list',
             component: YeucaufilmComponent
           },
           {
-            path: 'id/edit',
+            path: 'edit/:id',
             component: EditYeucauComponent
           },
           {
@@ -42,7 +39,6 @@ const routes: Routes = [
     ]
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

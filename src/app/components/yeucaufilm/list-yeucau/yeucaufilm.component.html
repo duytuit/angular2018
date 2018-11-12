@@ -1,5 +1,5 @@
 <div id="auto" style="margin-left:20px;margin-top:4px">
-            <td><button type="button"class="btn btn-outline-success"  data-toggle="modal" data-target="#addModalCenter">
+            <td><button type="button"class="btn btn-outline-success" [routerLink]="[ '/home/yeucau/add']">
                 Thêm
               </button></td>
             <td style="width:80px;">Từ Ngày :</td>
@@ -7,11 +7,8 @@
             <td style="width:80px;">Đến Ngày :</td>
             <td><input type="date" name="dateofbirth" id="dateofbirth"></td>
             <td><button type="button" class="btn btn-outline-primary" style="margin-left: 10px;">Tìm</button></td>
-            <td><button type="button" class="btn btn-outline-secondary " style="margin-left:300px;">Secondary</button></td>
-            <td><button type="button" class="btn btn-outline-danger">Danger</button></td>
-            <td><button type="button" class="btn btn-outline-warning">Warning</button></td>
-            <td><button type="button" class="btn btn-outline-info">Info</button></td>
-            <td><button type="button" class="btn btn-outline-dark">Dark</button></td>
+            <td><button type="button" class="btn btn-outline-danger" style="margin-left: 250px;">Xóa</button></td>
+            <td><button type="button" class="btn btn-outline-warning">Export To Excell</button></td>
    </div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 2px">
 <table style="background-position-x: right; width: 1980px;">
@@ -93,7 +90,7 @@
         :filtergiohoanthanh
         :filterngayxuatxuong
         :filterngaybaophe
-        :filternoidungbaophe">
+        :filternoidungbaophe" >
             <td>
                 <input type="checkbox" style="width:35px;">
             </td>
@@ -102,7 +99,7 @@
             <td style="width:100px;">{{item.ngay}}</td>
             <td style="width:74px;">{{item.gio}}</td>
             <td style="width:72px;">{{item.bophan}}</td>
-            <td style="width:152px;"><a href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">{{item.masanpham}}</a></td>
+            <td style="width:152px;"><a routerLink="/home/yeucau/edit/{{item.id}}">{{item.masanpham}}</a></td>
             <td style="width:100px;">{{item.phanloai}}</td>
             <td style="width:104px;">{{item.loaiphim}}</td>
             <td style="width:100px;">{{item.maydung}}</td>

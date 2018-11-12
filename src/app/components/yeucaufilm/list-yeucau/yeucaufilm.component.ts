@@ -1,6 +1,7 @@
 import { Component, OnInit,OnDestroy} from '@angular/core';
-// import { yeucau } from 'src/app/components/yeucaufilm/data_yeucau';
+//import { yeucaufilm } from 'src/app/shared/models/yeucau';
 import {YeucauService} from 'src/app/shared/services/yeucau.service';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-yeucaufilm',
   templateUrl: './yeucaufilm.component.html',
@@ -9,6 +10,7 @@ import {YeucauService} from 'src/app/shared/services/yeucau.service';
 })
 export class YeucaufilmComponent implements OnInit {
 
+  
   public yeucaufilm=[];
 
      filterid: number;
@@ -35,13 +37,13 @@ export class YeucaufilmComponent implements OnInit {
      filternoidungbaophe: string;
 
 
-  constructor(public yeucauService:YeucauService) {
+  constructor(public yeucauService:YeucauService,private router: Router) {
    }
 
   ngOnInit() {
    this.yeucauService.GetAllyeucau().subscribe(data=>this.yeucaufilm=data);
   }
- 
+  
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
