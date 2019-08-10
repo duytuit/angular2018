@@ -1,0 +1,261 @@
+<div style="padding: 5px 5px 5px 15px">
+    <div class="right right-responsive">
+            <div class="headertop">
+                    <td style="width:80px;">Từ Ngày :</td>
+                    <td><input type="date" name="dateofbirth" id="dateofbirth" #fromdate></td>
+                    <td style="width:80px;">Đến Ngày :</td>
+                    <td><input type="date" name="dateofbirth" id="dateofbirth" #todate></td>
+                    <td><button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="GetyeucauBydate(fromdate.value,todate.value)">Tìm</button></td>
+                    <td><button type="button" class="btn btn-outline-info" style="margin-left: 10px;" (click)="refresh()">Làm Mới</button></td>
+                    <td><button type="button" class="btn btn-outline-warning" style="margin-left: 10px;" (click)="exportAsXLSX()">Export
+                            To Excell</button></td>
+                </div>
+        <table class="girdtable" style="background-position-x: right; width: 1980px">
+            <thead style="background-color:#30013b;color: aliceblue">
+                <tr>
+                    <th>View</th>
+                    <th>ID</th>
+                    <th>Ngày</th>
+                    <th>Giờ</th>
+                    <th>Bộ Phận</th>
+                    <th>Tên Yêu Cầu</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Loại Yêu Cầu</th>
+                    <th>Loại Phim</th>
+                    <th>Máy Dùng</th>
+                    <th>Số Lượng</th>
+                    <th>Tỷ Lệ X</th>
+                    <th>Tỷ Lệ Y</th>
+                    <th>Người Yêu Cầu</th>
+                    <th>Nội Dung Yêu Cầu</th>
+                    <th>Xác Nhận</th>
+                    <th>Thời gian xác nhận</th>
+                    <th>Ghi Chú</th>
+                    <th>Tài liệu đính kèm</th>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"> All</td>
+                <td><input type="text" style="width:70px;" [(ngModel)]="filterid" placeholder="id"></td>
+                <td><input type="text" style="width:100px;"[(ngModel)]="filterngayyeucau" placeholder="ngày"></td>
+                <td><input type="text" style="width:70px;" [(ngModel)]="filtergioyeucau" placeholder="giờ"></td>
+                <td><input type="text" style="width:70px;" [(ngModel)]="filterbophanyeucauid" placeholder="bộ phận"></td>
+                <td><input type="text" style="width:130px;"[(ngModel)]="filtertenyeucau" placeholder="tên yêu cầu"></td>
+                <td><input type="text" style="width:150px;"[(ngModel)]="filtersanpham" placeholder="tên sản phẩm"></td>
+                <td><input type="text" style="width:100px;"[(ngModel)]="filterloaiyeucau" placeholder="loại yêu cầu"></td>
+                <td><input type="text" style="width:140px;"[(ngModel)]="filterloaiphim" placeholder="loại phim"></td>
+                <td><input type="text" style="width:100px;"[(ngModel)]="filtermay" placeholder="máy dùng"></td>
+                <td><input type="text" style="width:60px;" [(ngModel)]="filtersobo" placeholder="số bộ"></td>
+                <td><input type="text" style="width:60px;" [(ngModel)]="filterx" placeholder="tỷ lệ x"></td>
+                <td><input type="text" style="width:60px;" [(ngModel)]="filtery" placeholder="tỷ lệ y"></td>
+                <td><input type="text" style="width:120px;"[(ngModel)]="filternguoiyeucauid" placeholder="người yêu cầu"></td>
+                <td><input type="text" style="width:150px;"[(ngModel)]="filternoidungchitiet" placeholder="nội dung"></td>
+                <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhan" placeholder="xác nhận"></td>
+                <td><input type="text" style="width:140px;"[(ngModel)]="filterthoigianxacnhan" placeholder="thời gian xác nhận"></td>
+                <td><input type="text" style="width:150px;"[(ngModel)]="filterghichu" placeholder="ghi chú"></td>
+                <td><input type="text" style="width:130px;"[(ngModel)]="filtertailieudinhkem" placeholder="tài liệu đính kèm"></td> -->
+                    <td><input type="text" style="width:50px;"></td>
+                    <td><input type="text" style="width:70px;" placeholder="id"></td>
+                    <td><input type="text" style="width:100px;" placeholder="ngày"></td>
+                    <td><input type="text" style="width:70px;" placeholder="giờ"></td>
+                    <td><input type="text" style="width:90px;" placeholder="bộ phận"></td>
+                    <td><input type="text" style="width:130px;" placeholder="tên yêu cầu"></td>
+                    <td><input type="text" style="width:150px;" placeholder="tên sản phẩm"></td>
+                    <td><input type="text" style="width:100px;" placeholder="loại yêu cầu"></td>
+                    <td><input type="text" style="width:140px;" placeholder="loại phim"></td>
+                    <td><input type="text" style="width:100px;" placeholder="máy dùng"></td>
+                    <td><input type="text" style="width:60px;" placeholder="số lượng"></td>
+                    <td><input type="text" style="width:60px;" placeholder="tỷ lệ x"></td>
+                    <td><input type="text" style="width:60px;" placeholder="tỷ lệ y"></td>
+                    <td><input type="text" style="width:120px;" placeholder="người yêu cầu"></td>
+                    <td><input type="text" style="width:150px;" placeholder="nội dung"></td>
+                    <td><input type="text" style="width:100px;" placeholder="xác nhận"></td>
+                    <td><input type="text" style="width:140px;" placeholder="thời gian xác nhận"></td>
+                    <td><input type="text" style="width:150px;" placeholder="ghi chú"></td>
+                    <td><input type="text" style="width:130px;" placeholder="tài liệu đính kèm"></td>
+                </tr>
+            </thead>
+        </table>
+        <table class="table table-bordered table-hover table-sm" style="width:2010px;">
+            <div style="height:600px; width:100%; overflow-y:scroll;">
+                <tbody>
+                    <tr *ngFor="let item of getyeucau1">
+                        <!-- filterid:
+             filterngayyeucau:
+             filtergioyeucau:
+             filterbophanyeucauid:	
+             filtertenyeucau:	
+             filtersanpham:	
+             filterloaiyeucau:	
+             filterloaiphim:	
+             filtermay:	
+             filtersobo:	
+             filterx:	
+             filtery:	
+             filternguoiyeucauid:	
+             filternoidungchitiet:	
+             filterxacnhan:	
+             filterthoigianxacnhan:	
+             filterghichu:	
+             filtertailieudinhkem -->
+                        <td>
+                            <a class="btn text-danger" (click)="View(item.id)" data-toggle="modal" data-target="#exampleModalCenter"
+                                style="padding:0.2px;width:40px;">{{item.status}}</a>
+                        </td>
+                        <td style="width:71px;">{{item.id}}</td>
+                        <td style="width:102px;">{{item.thoigianyeucau |date:'dd/MM/yyyy'}}</td>
+                        <td style="width:74px;">{{item.thoigianyeucau | date:'HH:mm'}}</td>
+                        <td style="width:93px;">{{item.bophan}}</td>
+                        <td style="width:133px;">{{item.tenyeucau}}</td>
+                        <td style="width:152px;">{{item.sanpham}}</td>
+                        <td style="width:102px;">{{item.phanloai}}</td>
+                        <td style="width:142px;">{{item.loaiphim}}</td>
+                        <td style="width:102px;">{{item.may}}</td>
+                        <td style="width:62px;">{{item.sobo}}</td>
+                        <td style="width:61px;">{{item.x}}</td>
+                        <td style="width:63px;">{{item.y}}</td>
+                        <td style="width:122px;">{{item.nguoiyeucauid}}</td>
+                        <td style="width:154px;">{{item.noidungchitiet}}</td>
+                        <td style="width:100px;">{{item.xacnhan}}</td>
+                        <td style="width:145px;">{{item.thoigianxacnhan}}</td>
+                        <td style="width:150px;">{{item.ghichu}}</td>
+                        <td style="width:124px;">{{item.tailieudinhkem}}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
+    </div>
+</div>
+<!-- Edit giao việc -->
+<div *ngIf="sua" class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Chi tiết giao việc</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td><label>Người Nhận việc</label></td>
+                        <td>
+                            <input type="text" placeholder="người nhận việc" [(ngModel)]="tenuser" (click)="openDropDownuser()"
+                                class="form-control">
+                            <div (click)="closeDropDownuser()">
+                                <div *ngIf="showDropDownuser" class="search-drop-down">
+                                    <div (click)="selectValueuser(s)" class="search-results" *ngFor="let s of user">
+                                        <a>
+                                            {{s.ten}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <form [formGroup]="addgiaoviec" *ngIf="allgiaoviec">
+                    <table class="table-no-bordered">
+                        <tr>
+                            <td><label>ID Giao Việc</label></td>
+                            <td><input type="text" class="form-control" [attr.disabled]="true" [(ngModel)]="allgiaoviec.id"
+                                    formControlName="id"></td>
+                        </tr>
+                        <tr>
+                            <td><label>ID Yêu Cầu</label></td>
+                            <td><input type="text" class="form-control" [attr.disabled]="true" [(ngModel)]="idyeucau"
+                                    formControlName="yeucauid"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Thời gian giao việc</label></td>
+                            <td><input type="text" class="form-control" [attr.disabled]="true" value="{{allgiaoviec.thoigiangiaoviec}}"
+                                    formControlName="thoigiangiaoviec"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Ghi Chú</label></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="allgiaoviec.ghichu"
+                                    formControlName="ghichu" placeholder="ghi chú"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="hidden" [(ngModel)]="allgiaoviec.nguoithuchienid" formControlName="nguoithuchienid"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="DeleteGiaoviec(allgiaoviec.id)"
+                                    data-dismiss="modal">Xóa</button>
+                            </td>
+                            <td>
+                                <!-- <p style="color: red">{{Message}}</p> -->
+                                <button type="submit" [disabled]="!addgiaoviec.valid" (click)="onEditgiaoviec()"
+                                    data-dismiss="modal" class="btn btn-primary">Sửa</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Insert giao việc -->
+<div *ngIf="them" class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Thêm giao việc</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td><label>Người Nhận việc</label></td>
+                        <td>
+                            <input type="text" placeholder="người nhận việc" [(ngModel)]="tenuser" (click)="openDropDownuser()"
+                                class="form-control">
+                            <div (click)="closeDropDownuser()">
+                                <div *ngIf="showDropDownuser" class="search-drop-down">
+                                    <div (click)="selectValueuser(s)" class="search-results" *ngFor="let s of user">
+                                        <a>
+                                            {{s.ten}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <form [formGroup]="addgiaoviec">
+                    <table class="table-no-bordered">
+                        <tr>
+                            <td><input type="hidden" [(ngModel)]="iduser" formControlName="nguoithuchienid"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;"><label>ID Giao Việc</label></td>
+                            <td><input type="text" [attr.disabled]="true" class="form-control" formControlName="id"></td>
+                        </tr>
+                        <tr>
+                            <td><label>ID Yêu Cầu</label></td>
+                            <td><input type="text" class="form-control" [attr.disabled]="true" [(ngModel)]="idyeucau"
+                                    formControlName="yeucauid"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Ghi Chú</label></td>
+                            <td><input type="text" class="form-control" formControlName="ghichu" placeholder="ghi chú"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <!-- <p style="color: red">{{Message}}</p> -->
+                                <button type="submit" [disabled]="!addgiaoviec.valid" (click)="onAddgiaoviec()"
+                                    data-dismiss="modal" class="btn btn-primary">Submit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

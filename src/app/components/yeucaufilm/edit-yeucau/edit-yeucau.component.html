@@ -1,53 +1,153 @@
-<table class="table-no-bordered" *ngIf="yeucau" style="margin-left: 250px;">
+<div style="margin-left: 250px">
   <h3>Sửa Yêu Cầu</h3>
+</div>
+
+<table style="margin-left: 250px" class="table-no-bordered">
+    <tr>
+        <td style="width: 188px;"><label>Bộ Phận</label></td>
+        <td >
+          <input type="text" placeholder="bộ phận" [(ngModel)]="tenbophan" [attr.disabled]="true" (click)="openDropDownbophan()" class="form-control">
+          <div (click)="closeDropDownbophan()">
+            <div *ngIf="showDropDownbophan" class="search-drop-down">
+              <div (click)="selectValuebophan(s)" class="search-results" *ngFor="let s of getbophan">
+                <a>
+                  {{s.Name}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
   <tr>
-    <td><label>Ca</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.ca" placeholder="ca"></td>
-  </tr>
-  <tr>
-    <td><label>Ngày</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.ngay" placeholder="ngày"></td>
-  </tr>
-  <tr>
-    <td><label>Giờ</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.gio" placeholder="giờ"></td>
-  </tr>
-  <tr>
-    <td><label>Bộ Phận</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.bophan" placeholder="bộ phận"></td>
-  </tr>
-  <tr>
-    <td><label>Tên Sản Phẩm</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.masanpham" placeholder="tên sản phẩm"></td>
-  </tr>
-  <tr>
-    <td><label>Phân Loại</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.phanloai" placeholder="phân loại"></td>
+    <td style="width: 188px;"><label>Tên Sản phẩm</label></td>
+    <td>
+      <input type="text" placeholder="sản phẩm" [(ngModel)]="tensanpham" [attr.disabled]="true" (click)="openDropDownsanpham()" class="form-control">
+      <div (click)="closeDropDownsanpham()">
+        <div *ngIf="showDropDownsanpham" class="search-drop-down">
+          <div (click)="selectValuesanpham(s)" class="search-results" *ngFor="let s of getsanpham">
+            <a>
+              {{s.tensanpham}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </td>
   </tr>
   <tr>
     <td><label>Loại Phim</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.loaiphim" placeholder="loại phim"></td>
+    <td>
+      <input type="text" placeholder="loại phim" [(ngModel)]="tenloaiphim" [attr.disabled]="true" (click)="openDropDownloaiphim()" class="form-control">
+      <div (click)="closeDropDownloaiphim()">
+        <div *ngIf="showDropDownloaiphim" class="search-drop-down">
+          <div (click)="selectValueloaiphim(s)" class="search-results" *ngFor="let s of loaiphim_filter">
+            <a>
+              {{s.tenloaiphim}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </td>
   </tr>
   <tr>
     <td><label>Máy Dùng</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.maydung" placeholder="máy dùng"></td>
-  </tr>
-  <tr>
-    <td><label>Tỷ Lệ</label></td>
-    <td><input style="width:90px" type="text" class="form-control" [(ngModel)]="yeucau.tylex" placeholder="tỷ lệ x"></td>
-    <td><input style="width:90px; margin-left:-93px" type="text" class="form-control" [(ngModel)]="yeucau.tyley"
-        placeholder="tỷ lệ y"></td>
-  </tr>
-  <tr>
-    <td><label>Người Yêu Cầu</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.nguoiyeucau" placeholder="người yêu cầu"></td>
-  </tr>
-  <tr>
-    <td><label>Nội Dung Yêu Cầu</label></td>
-    <td><input type="text" class="form-control" [(ngModel)]="yeucau.noidungyeucau" placeholder="nội dung"></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td> <button type="button" class="btn btn-primary" (click)="Save()">Submit</button></td>
+    <td>
+      <input type="text" placeholder="máy dùng" [(ngModel)]="tenmay" [attr.disabled]="true" (click)="openDropDownmay()" class="form-control">
+      <div (click)="closeDropDownmay()">
+        <div *ngIf="showDropDownmay" class="search-drop-down">
+          <div (click)="selectValuemay(s)" class="search-results" *ngFor="let s of getmay">
+            <a>
+              {{s.tenmay}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </td>
   </tr>
 </table>
+<form style="margin-left: 250px" *ngIf="yeucau" [formGroup]="addyeucau" (ngSubmit)="onEdityeucau()">
+  <table class="table-no-bordered">
+      <tr>
+          <td><input type="hidden" [(ngModel)]="idbophan" formControlName="bophanyeucauid"></td>
+        </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="idyeucau" formControlName="id"></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="idsanpham" formControlName="samphamid"></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="idloaiphim" formControlName="loaiphimid"></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="idmay" formControlName="mayid"></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="tylecodinh" formControlName="tilycodinh"></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" [(ngModel)]="soluong" formControlName="sobo"></td>
+    </tr>
+    <tr>
+        <td><input type="hidden" [(ngModel)]="phanloai" formControlName="loaiyeucau"></td>
+      </tr>
+    <tr>
+      <td><label>Phân Loại</label></td>
+      <td>
+          <select name="phanloai" id="inputphanloai" [(ngModel)]="yeucau.loaiyeucau" [ngModelOptions]="{standalone: true}" class="form-control"
+          (change)="onPhanloai($event.target.value)">
+          <option disabled selected hidden>--Phân loại--</option>
+          <option value=1>hàng mới</option>
+          <option value=2>làm lại</option>
+          <option value=3>thay đổi</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select name="tyle" id="inputtyle" [(ngModel)]="yeucau.tilycodinh" [ngModelOptions]="{standalone: true}" class="form-control"
+          (change)="onTyLe($event.target.value)">
+          <option value=0>Tỷ Lệ Theo Yêu Cầu</option>
+          <option value=1>Tỷ Lệ Cố Định</option>
+        </select>
+      </td>
+      <td><input style="width:90px" type="text" class="form-control" [(ngModel)]="tylex" formControlName="x"
+          placeholder="tỷ lệ x"></td>
+      <td><input style="width:90px; margin-left:-93px" type="text" class="form-control" [(ngModel)]="tyley"
+          formControlName="y" placeholder="tỷ lệ y"></td>
+    </tr>
+    <tr>
+      <td><label>Nội Dung Chi Tiết</label></td>
+      <td><input type="text" class="form-control" [(ngModel)]="yeucau.noidungchitiet" formControlName="noidungchitiet"
+          placeholder="nội dung"></td>
+    </tr>
+    <tr>
+      <td><label>Ghi Chú</label></td>
+      <td><input type="text" class="form-control" [(ngModel)]="yeucau.ghichu" formControlName="ghichu" placeholder="ghi chú"></td>
+    </tr>
+    <tr>
+      <td><label>Tài Liệu Đính Kèm</label></td>
+      <td><input type="text" class="form-control" [(ngModel)]="yeucau.tailieudinhkem" formControlName="tailieudinhkem"
+          placeholder="tài liệu đính kèm"></td>
+    </tr>
+    <tr>
+      <td><label>Số lượng</label></td>
+      <td>
+        <select name="soluong" id="inputsoluong" [(ngModel)]="yeucau.sobo" [ngModelOptions]="{standalone: true}" class="form-control"
+          (change)="onEvent($event.target.value)">
+          <option disabled selected hidden>--Số lượng--</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <tr>
+    <td>
+      <button type="submit" [disabled]="!addyeucau.valid" class="btn btn-primary">Submit</button>
+    </td>
+    <td>
+      <p style="color: red">{{Message}}</p>
+    </td>
+  </tr>
+</form>

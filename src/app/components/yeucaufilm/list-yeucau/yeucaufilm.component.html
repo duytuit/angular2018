@@ -1,123 +1,151 @@
-<div id="auto" style="margin-left:20px;margin-top:4px">
+<div class="content">
+<div style="margin-left:15px;margin-top:4px; background-color: rgba(5, 0, 138, 1);width:2110px;padding: 3px;color: aliceblue">
             <td><button type="button"class="btn btn-outline-success" [routerLink]="[ '/home/yeucau/add']">
                 Thêm
               </button></td>
             <td style="width:80px;">Từ Ngày :</td>
-            <td><input type="date" name="dateofbirth" id="dateofbirth"></td>
+            <td><input type="date" name="dateofbirth" id="dateofbirth" #fromdate></td>
             <td style="width:80px;">Đến Ngày :</td>
-            <td><input type="date" name="dateofbirth" id="dateofbirth"></td>
-            <td><button type="button" class="btn btn-outline-primary" style="margin-left: 10px;">Tìm</button></td>
-            <td><button type="button" class="btn btn-outline-danger" style="margin-left: 250px;">Xóa</button></td>
-            <td><button type="button" class="btn btn-outline-warning">Export To Excell</button></td>
+            <td><input type="date" name="dateofbirth" id="dateofbirth" #todate></td>
+            <td><button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="GetyeucauBydate(fromdate.value,todate.value)">Tìm</button></td>
+            <td><button type="button" class="btn btn-outline-info" style="margin-left: 10px;" (click)="refresh()">Làm Mới</button></td>
+            <td><button type="button" class="btn btn-outline-warning" style="margin-left: 10px;" (click)="exportAsXLSX()">Export To Excell</button></td>
+          
    </div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 2px">
 <table style="background-position-x: right; width: 1980px;">
-    <thead  style="background-color: rgb(51, 144, 250)">
+    <thead  style="background-color:rgba(5, 0, 138, 1);color: aliceblue">
         <tr>
             <th>Check</th>
             <th>ID</th>
-            <th>Ca</th>
             <th>Ngày</th>
             <th>Giờ</th>
             <th>Bộ Phận</th>
+            <th>Tên Yêu Cầu</th>
             <th>Tên Sản Phẩm</th>
-            <th>Phân Loại</th>
+            <th>Loại Yêu Cầu</th>
             <th>Loại Phim</th>
             <th>Máy Dùng</th>
-            <th>Số Bộ</th>
+            <th>Số Lượng</th>
             <th>Tỷ Lệ X</th>
             <th>Tỷ Lệ Y</th>
             <th>Người Yêu Cầu</th>
             <th>Nội Dung Yêu Cầu</th>
-            <th>Xác Nhận PE</th>
-            <th>Xác Nhận Cam</th>
-            <th>Máy In</th>
-            <th>Hiện Trạng</th>
-            <th>Giờ Xong</th>
-            <th>Ngày Xuất</th>
-            <th>Ngày Phế</th>
-            <th>Nội dung phế</th>
+            <th>Xác Nhận</th>
+            <th>Người Xác Nhận</th>
+            <th>Thời gian xác nhận</th>
+            <th>Ghi Chú</th>
+            <th>Tài liệu đính kèm</th>
         </tr>
         <tr>
-            <td><input type="checkbox"> All</td>
+            <!-- <td><input type="checkbox"> All</td>
             <td><input type="text" style="width:70px;" [(ngModel)]="filterid" placeholder="id"></td>
-            <td><input type="text" style="width:70px;" [(ngModel)]="filterca" placeholder="ca"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterngay" placeholder="ngày"></td>
-            <td><input type="text" style="width:70px;" [(ngModel)]="filtergio" placeholder="giờ"></td>
-            <td><input type="text" style="width:70px;" [(ngModel)]="filterbophan" placeholder="bộ phận"></td>
-            <td><input type="text" style="width:150px;"[(ngModel)]="filtermasanpham" placeholder="mã sản phẩm"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterphanloai" placeholder="phân loại"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterloaiphim" placeholder="loại phim"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filtermaydung" placeholder="máy dùng"></td>
-            <td><input type="text" style="width:50px;" [(ngModel)]="filtersobo" placeholder="số bộ"></td>
-            <td><input type="text" style="width:50px;" [(ngModel)]="filtertylex" placeholder="tỷ lệ x"></td>
-            <td><input type="text" style="width:50px;" [(ngModel)]="filtertyley" placeholder="tỷ lệ y"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filternguoiyeucau" placeholder="người yêu cầu"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filternoidungyeucau" placeholder="nội dung"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhanpe" placeholder="xác nhận pe"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhancam" placeholder="xác nhận cam"></td>
-            <td><input type="text" style="width:50px;" [(ngModel)]="filtermayin" placeholder="máy in"></td>
-            <td><input type="text" style="width:150px;"[(ngModel)]="filterhientrang" placeholder="hiện trạng"></td>
-            <td><input type="text" style="width:50px;" [(ngModel)]="filtergiohoanthanh" placeholder="giờ hoàn thành"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterngayxuatxuong" placeholder="ngày xuất"></td>
-            <td><input type="text" style="width:100px;"[(ngModel)]="filterngaybaophe" placeholder="ngày phế"></td>
-            <td><input type="text" style="width:160px;"[(ngModel)]="filternoidungbaophe" placeholder="nội dung báo phế"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterngayyeucau" placeholder="ngày"></td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filtergioyeucau" placeholder="giờ"></td>
+            <td><input type="text" style="width:70px;" [(ngModel)]="filterbophanyeucauid" placeholder="bộ phận"></td>
+            <td><input type="text" style="width:130px;"[(ngModel)]="filtertenyeucau" placeholder="tên yêu cầu"></td>
+            <td><input type="text" style="width:150px;"[(ngModel)]="filtersanpham" placeholder="tên sản phẩm"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterloaiyeucau" placeholder="loại yêu cầu"></td>
+            <td><input type="text" style="width:140px;"[(ngModel)]="filterloaiphim" placeholder="loại phim"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filtermay" placeholder="máy dùng"></td>
+            <td><input type="text" style="width:60px;" [(ngModel)]="filtersobo" placeholder="số bộ"></td>
+            <td><input type="text" style="width:60px;" [(ngModel)]="filterx" placeholder="tỷ lệ x"></td>
+            <td><input type="text" style="width:60px;" [(ngModel)]="filtery" placeholder="tỷ lệ y"></td>
+            <td><input type="text" style="width:120px;"[(ngModel)]="filternguoiyeucauid" placeholder="người yêu cầu"></td>
+            <td><input type="text" style="width:150px;"[(ngModel)]="filternoidungchitiet" placeholder="nội dung"></td>
+            <td><input type="text" style="width:100px;"[(ngModel)]="filterxacnhan" placeholder="xác nhận"></td>
+            <td><input type="text" style="width:140px;"[(ngModel)]="filterthoigianxacnhan" placeholder="thời gian xác nhận"></td>
+            <td><input type="text" style="width:150px;"[(ngModel)]="filterghichu" placeholder="ghi chú"></td>
+            <td><input type="text" style="width:130px;"[(ngModel)]="filtertailieudinhkem" placeholder="tài liệu đính kèm"></td> -->
+            <td><input type="checkbox"> All</td>
+            <td><input type="text" style="width:70px;"  placeholder="id"></td>
+            <td><input type="text" style="width:100px;" placeholder="ngày"></td>
+            <td><input type="text" style="width:70px;"  placeholder="giờ"></td>
+            <td><input type="text" style="width:90px;"  placeholder="bộ phận"></td>
+            <td><input type="text" style="width:130px;" placeholder="tên yêu cầu"></td>
+            <td><input type="text" style="width:150px;" placeholder="tên sản phẩm"></td>
+            <td><input type="text" style="width:100px;" placeholder="loại yêu cầu"></td>
+            <td><input type="text" style="width:140px;" placeholder="loại phim"></td>
+            <td><input type="text" style="width:100px;" placeholder="máy dùng"></td>
+            <td><input type="text" style="width:60px;"  placeholder="số lượng"></td>
+            <td><input type="text" style="width:60px;"  placeholder="tỷ lệ x"></td>
+            <td><input type="text" style="width:60px;"  placeholder="tỷ lệ y"></td>
+            <td><input type="text" style="width:120px;" placeholder="người yêu cầu"></td>
+            <td><input type="text" style="width:150px;" placeholder="nội dung"></td>
+            <td><input type="text" style="width:100px;" placeholder="xác nhận"></td>
+            <td><input type="text" style="width:100px;" placeholder="người xác nhận"></td>
+            <td><input type="text" style="width:140px;" placeholder="thời gian xác nhận"></td>
+            <td><input type="text" style="width:150px;" placeholder="ghi chú"></td>
+            <td><input type="text" style="width:130px;" placeholder="tài liệu đính kèm"></td>
         </tr>
     </thead>
 </table>
-<table class="table table-bordered table-hover table-sm" style="width:2100px;">
-<div style="height:630px; width:100%; overflow-y:scroll;" >
-    <tbody>
-        <tr *ngFor="let item of yeucaufilm | filterPipe03 
-        :filterid
-        :filterca 
-        :filterngay 
-        :filtergio
-        :filterbophan
-        :filtermasanpham
-        :filterphanloai
-        :filterloaiphim
-        :filtermaydung
-        :filtersobo
-        :filtertylex
-        :filtertyley
-        :filternguoiyeucau
-        :filternoidungyeucau
-        :filterxacnhanpe
-        :filterxacnhancam 
-        :filtermayin
-        :filterhientrang
-        :filtergiohoanthanh
-        :filterngayxuatxuong
-        :filterngaybaophe
-        :filternoidungbaophe" >
+<table class="table table-bordered table-hover table-sm" style="width:2110px;">
+<div style="height:615px; width:100%; overflow-y:scroll;font-size:12px;font-weight: bold;" >
+    <tbody >
+        <tr *ngFor="let item of yeucaufilm">
+         <!-- filterid:
+         filterngayyeucau:
+         filtergioyeucau:
+         filterbophanyeucauid:	
+         filtertenyeucau:	
+         filtersanpham:	
+         filterloaiyeucau:	
+         filterloaiphim:	
+         filtermay:	
+         filtersobo:	
+         filterx:	
+         filtery:	
+         filternguoiyeucauid:	
+         filternoidungchitiet:	
+         filterxacnhan:	
+         filterthoigianxacnhan:	
+         filterghichu:	
+         filtertailieudinhkem -->
             <td>
-                <input type="checkbox" style="width:35px;">
+                <a class="btn text-danger"(click)="checkbox(item.id)" data-toggle="modal" data-target="#exampleModalCenter" style="padding:0.2px;width:35px;font-size:12px;font-weight: bold;">Xóa</a>
             </td>
-            <td style="width:70px;">{{item.id}}</td>
-            <td style="width:74px;">{{item.ca}}</td>
-            <td style="width:100px;">{{item.ngay}}</td>
-            <td style="width:74px;">{{item.gio}}</td>
-            <td style="width:72px;">{{item.bophan}}</td>
-            <td style="width:152px;"><a routerLink="/home/yeucau/edit/{{item.id}}">{{item.masanpham}}</a></td>
-            <td style="width:100px;">{{item.phanloai}}</td>
-            <td style="width:104px;">{{item.loaiphim}}</td>
-            <td style="width:100px;">{{item.maydung}}</td>
-            <td style="width:55px;">{{item.sobo}}</td>
-            <td style="width:50px;">{{item.tylex}}</td>
-            <td style="width:52px;">{{item.tyley}}</td>
-            <td style="width:100px;">{{item.nguoiyeucau}}</td>
-            <td style="width:105px;">{{item.noidungyeucau}}</td>
-            <td style="width:100px;">{{item.xacnhanpe}}</td>
-            <td style="width:105px;">{{item.xacnhancam}}</td>
-            <td style="width:50px;">{{item.mayin}}</td>
-            <td style="width:154px;">{{item.hientrang}}</td>
-            <td style="width:50px;">{{item.giohoanthanh}}</td>
-            <td style="width:102px;">{{item.ngayxuatxuong}}</td>
-            <td style="width:102px;">{{item.ngaybaophe}}</td>
-            <td style="width:160px;">{{item.noidungbaophe}}</td>
+            <td style="width:71px;">{{item.id}}</td>
+            <td style="width:102px;">{{item.thoigianyeucau |date:'dd/MM/yyyy'}}</td>
+            <td style="width:74px;">{{item.thoigianyeucau | date:'HH:mm'}}</td>
+            <td style="width:90px;">{{item.bophan}}</td>
+            <td style="width:133px;">{{item.tenyeucau}}</td>
+            <td style="width:152px;"><a routerLink="/home/yeucau/edit/{{item.id}}">{{item.sanpham}}</a></td>
+            <td style="width:102px;">{{item.phanloai}}</td>
+            <td style="width:142px;">{{item.loaiphim}}</td>
+            <td style="width:102px;">{{item.may}}</td>
+            <td style="width:62px;">{{item.sobo}}</td>
+            <td style="width:61px;">{{item.x}}</td>
+            <td style="width:63px;">{{item.y}}</td>
+            <td style="width:122px;">{{item.nguoiyeucauid}}</td>
+            <td style="width:154px;">{{item.noidungchitiet}}</td>
+            <td style="width:100px;">{{item.tinhtrang}}</td>
+            <td style="width:100px;">{{item.nguoixacnhan}}</td>
+            <td style="width:145px;">{{item.thoigianxacnhan |date:'dd/MM/yy-HH:mm'}}</td>
+            <td style="width:150px;">{{item.ghichu}}</td>
+            <td style="width:124px;">{{item.tailieudinhkem}}</td>
         </tr>
     </tbody>
 </div>
 </table>
+</div>
+</div>
+<!-- Thông Báo -->
+<div *ngIf="thongbao" class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: darkorange">
+                <h5 class="modal-title" id="exampleModalLongTitle">Thông Báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="color: darkorange">
+                    <h6>Yêu cầu đã được xử lý! Bạn không thể xóa!</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

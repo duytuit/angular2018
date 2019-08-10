@@ -7,18 +7,18 @@ import { Router} from '@angular/router';
   styleUrls: ['./side-menu01.component.css']
 })
 export class SideMenu01Component implements OnInit {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,) { }
 
   ngOnInit() {
   }
    logout()
    {
-     if(localStorage.getItem('data'))
+     if(localStorage.getItem('userRoles'))
      {
-       localStorage.removeItem('data');
+       localStorage.removeItem('userRoles');
        this.router.navigate(['login']);
      }
 
    }
+  
 }

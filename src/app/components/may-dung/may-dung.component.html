@@ -1,3 +1,52 @@
-<p>
-  may-dung works!
-</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chi tiết giao việc</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="addgiaoviec" (ngSubmit)="onEditgiaoviec()">
+                <table class="table-no-bordered">
+                    <tr>
+                        <td><label>ID Giao Việc</label></td>
+                        <td><input type="text" class="form-control" [attr.disabled]="true" [(ngModel)]="allgiaoviec.id"
+                                formControlName="id"></td>
+                    </tr>
+                    <tr>
+                        <td><label>ID Yêu Cầu</label></td>
+                        <td><input type="text" class="form-control" [attr.disabled]="true" [(ngModel)]="idyeucau"
+                                formControlName="yeucauid"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Thời gian giao việc</label></td>
+                        <td><input type="text" class="form-control" [attr.disabled]="true" value="{{allgiaoviec.thoigiangiaoviec}}"
+                                formControlName="thoigiangiaoviec"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Ghi Chú</label></td>
+                        <td><input type="text" class="form-control" [(ngModel)]="allgiaoviec.ghichu"
+                                formControlName="ghichu" placeholder="ghi chú"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="padding: 10px" >
+          <hr>
+         <div style="float: left;"> 
+            <button type="button" class="btn btn-danger"  data-dismiss="modal" (click)="DeleteGiaoviec(allgiaoviec.id)" >Xóa</button>
+         </div>
+         <div style="float: right;">
+            <button type="submit" [disabled]="!addgiaoviec.valid" data-dismiss="modal" class="btn btn-primary">Sửa</button>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
